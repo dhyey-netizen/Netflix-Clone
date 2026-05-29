@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix India – Watch TV Shows Online, Watch Movies Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-image: url(/header-image.png);
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      position: relative;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .header {
+      position: relative;
+      z-index: 2;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+    .lang-select {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      padding: 6px 10px;
+      margin-right: 12px;
+      font-size: 14px;
+    }
+
+    .btn-signin {
+      background: #e50914;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .center-box {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      margin: 140px auto;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 60px 40px;
+      border-radius: 10px;
+    }
+
+    .center-box h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .center-box p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .center-box input[type="email"] {
+      padding: 16px;
+      width: 100%;
+      max-width: 500px;
+      border: none;
+      border-radius: 4px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .get-started-btn {
+      background-color: #e50914;
+      color: white;
+      padding: 16px;
+      margin-top: 20px;
+      border: none;
+      width: 100%;
+      max-width: 500px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .get-started-btn:hover {
+      background-color: #f6121d;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      .center-box {
+      position: relative;
+       z-index: 2;
+      max-width: 650px;
+     margin: 140px auto;
+     text-align: center;
+     background-color: rgba(0, 0, 0, 0.5); /* more transparent */
+     padding: 60px 40px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px); /* frosted glass effect */
+      -webkit-backdrop-filter: blur(10px); /* Safari support */
+     border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
+}
+
+
+      .center-box h1 {
+        font-size: 1.8rem;
+      }
+
+      .center-box p {
+        font-size: 1rem;
+      }
+
+      .get-started-btn,
+      .center-box input[type="email"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="header">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="Netflix Logo" />
+    <div>
+      <select class="lang-select">
+        <option>🌐 हिन्दी</option>
+        <option>🌐 English</option>
+      </select>
+      <button class="btn-signin">Sign In</button>
+    </div>
+  </div>
+
+  <div class="center-box">
+    <h1>Unlimited movies, TV shows and more</h1>
+    <p>Starts at ₹149. Cancel anytime.</p>
+    <p>Ready to watch? Enter your email to create or restart your membership.</p>
+    <input type="email" placeholder="Email address" />
+    <button class="get-started-btn">Get Started &nbsp; ➤</button>
+  </div>
+</body>
+</html>

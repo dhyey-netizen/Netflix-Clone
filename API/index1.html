@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Poster</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+    .movie-poster {
+      background: #222;
+      border-radius: 10px;
+      padding: 15px;
+      display: inline-block;
+      text-align: left;
+      width: 300px;
+    }
+    .movie-poster img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .movie-poster h2 {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+    .movie-poster p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Movie Poster</h1>
+  <div id="movie"></div>
+
+  <script>
+    const url = 'https://netflix54.p.rapidapi.com/lookup/movie?ids=80002466'; // Ensure this is a valid movie ID
+    const options = {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': '569ec41766msh8eb7b3ad0a35c71p1922c3jsne2ba62ff6646',
+        'x-rapidapi-host': 'netflix54.p.rapidapi.com'
+      }
+    };
+
+    async function loadMovie() {
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+
+        // Log the entire API response to inspect its structure
+        console.log('API Response:', data);
+
+        // Check if data is valid
+        if (!data || data.length === 0 || !data[0]) {
+          throw new Error("No valid movie data found.");
+        }
+
+        const movie = data[0]; // Assuming the movie data is in the first index of the response
+        console.log('Movie Object:', movie);  // Log the movie object to inspect its structure
+
+        const movieDiv = document.getElementById("movie");
+
+        // Check if movie data is available
+        const title = movie.title || "Unknown Title";
+        const description = movie.synopsis || "No description available";
+        const imageUrl = movie.imageUrl || 'https://via.placeholder.com/300'; // Placeholder image if no image available
+
+        const movieCard = document.createElement("div");
+        movieCard.className = "movie-poster";
+
+        movieCard.innerHTML = `
+          <img src="${imageUrl}" alt="${title}">
+          <h2>${title}</h2>
+          <p>${description}</p>
+        `;
+
+        movieDiv.appendChild(movieCard);
+      } catch (error) {
+        console.error('Error loading movie:', error);
+        const errorDiv = document.createElement("div");
+        errorDiv.style.color = "red";
+        errorDiv.innerHTML = `<p>Error loading movie: ${error.message}</p>`;
+        document.body.appendChild(errorDiv);
+      }
+    }
+
+    loadMovie();
+  </script>
+</body>
+</html>

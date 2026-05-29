@@ -1,0 +1,226 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #141414; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8) 0%,       
+            rgba(0, 0, 0, 0.5) 10%,
+            rgba(0, 0, 0, 0.0) 25%,      
+            rgba(0, 0, 0, 0.0) 75%,
+            rgba(0, 0, 0, 0.5) 90%,
+            rgba(0, 0, 0, 0.8) 100%      
+        ),
+        radial-gradient(red 1px, transparent 1px),
+        radial-gradient(red 1px, transparent 1px);
+    
+        z-index: -1;
+    overflow-x: hidden;
+}
+
+#logo {
+    width: 150px;
+    height: 80px;
+    text-align: left;
+    margin-top: -37px;
+    margin-left: 34px;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    margin-left: 30px;
+    color: #e5e5e5;
+}
+
+.navbar-elements {
+    width: 550px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-elements-right {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 100;
+    text-align: center;
+    position: relative;
+    left: 550px;
+}
+
+.movie-logo {
+    background-color: transparent; 
+    width: 700px;
+    height: 800px;
+    border: transparent;
+    display: block;
+    color: white;
+    padding: 45px;
+    padding-left: 68px;
+    margin-top: 40px;
+    filter: drop-shadow(1px 1px 0px black);
+}
+
+.buttons {
+    display: flex;
+    width: 498px;
+    height: 100px;
+    font-size: 20px;
+    align-items: center;
+    gap: 12px;
+    padding-left: 0px;
+    font-weight: 400;
+}
+
+#icon {
+    font-size: 19px;
+}
+
+#play-btn {
+    width: 120px;
+    height: 44px;
+    border: 2px solid white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    font-weight: 550;
+    font-size: 20px;
+    word-spacing: 3px;
+    background-color: #FFFFFF;
+    color: black;
+}
+
+#more-info {
+    width: 170px;
+    height: 44px;
+    border: transparent;
+    background-color: rgba(109, 109, 110, 0.7);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    align-content: center;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+#fixed-msg {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#movie-desc {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 532px;
+    font-size: 18px;
+}
+
+/* Body */
+.body {
+    position: relative;
+    height: auto !important;
+    left: 65px;
+    top: -230px;
+    overflow: visible !important;
+    z-index: 1;
+}
+
+#bordedom, #tv-shows {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: 550;
+    padding-bottom: 15px;
+    color: white;
+    z-index: 1;
+}
+
+.boredom-buster {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; 
+    overflow-y: visible !important;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    scrollbar-color: #999 transparent; 
+    scroll-behavior: smooth;
+    scrollbar-width: none;        
+    -ms-overflow-style: none; 
+    position: relative;
+    z-index: 2;
+}
+
+.boredom-buster::-webkit-scrollbar {
+    display: none;                  
+}
+
+.movie-image {
+    display: inline-block;
+    transition: transform 0.3 ease-in-out;
+    min-width: 230px;
+    z-index: 1;
+    width: 270px;
+    height: 130px;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    position: relative; 
+}
+
+body::-webkit-scrollbar {
+    display: none;             
+}
+
+.modal {
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin-left: 350px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.icon {
+    color: white;
+    position: absolute;
+    font-size: 30px;
+    top: 80px;
+    right: 50px;
+    z-index: 2;
+}
+
+.top-movies {
+    width: 95%;
+    margin-left: -20px;
+}

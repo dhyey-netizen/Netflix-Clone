@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actor Jobs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      padding: 20px;
+    }
+    .job {
+      background-color: #222;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .job h3 {
+      margin: 0;
+      color: #FF4500;
+    }
+    .job p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interesting Jobs of Actor Leonardo DiCaprio</h1>
+  <div id="jobs"></div>
+
+  <script>
+    const url = 'https://imdb8.p.rapidapi.com/actors/get-interesting-jobs?nconst=nm0001667';
+    const options = {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': '569ec41766msh8eb7b3ad0a35c71p1922c3jsne2ba62ff6646',
+        'x-rapidapi-host': 'imdb8.p.rapidapi.com'
+      }
+    };
+
+    async function loadJobs() {
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();  // Parse response as JSON
+        console.log(result);  // Log the response for debugging
+        
+        const jobsDiv = document.getElementById('jobs');
+        
+        if (result && result.jobs && result.jobs.length > 0) {
+          // Iterate through the jobs and display them
+          result.jobs.forEach(job => {
+            const jobElement = document.createElement('div');
+            jobElement.className = 'job';
+            jobElement.innerHTML = `
+              <h3>${job.title}</h3>
+              <p><strong>Year:</strong> ${job.year}</p>
+              <p><strong>Job Description:</strong> ${job.description || 'No description available.'}</p>
+            `;
+            jobsDiv.appendChild(jobElement);
+          });
+        } else {
+          jobsDiv.innerHTML = '<p>No interesting jobs found for this actor.</p>';
+        }
+      } catch (error) {
+        console.error('Error loading jobs:', error);
+        document.getElementById('jobs').innerHTML = '<p>Error loading jobs data.</p>';
+      }
+    }
+
+    loadJobs();
+  </script>
+</body>
+</html>

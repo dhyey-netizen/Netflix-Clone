@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://assets.nflxext.com/ffe/siteui/vlv3/98df3030-1c2b-4bd1-a2f5-13c611857edb/web/IN-en-20250331-TRIFECTA-perspective_247b6f06-c36d-4dff-a8eb-4013325c3f8e_large.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header {
+    width: 100%;
+    padding: 0px 60px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-start; 
+    box-sizing: border-box;
+}
+
+#logo img {
+    width: 180px;
+    height: 190px;
+}
+
+.content {
+    background-color: rgb(0, 0, 0, 0.65);
+    /* position: relative; */
+    backdrop-filter: blur(1.5px);
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding: 60px;
+    width: 450px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: left;
+    border-radius: 10px;
+    margin-top: -50px;
+}
+
+#email-input input {
+    width: 100%;
+    height: 65px;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 15px;
+    color: rgb(209, 209, 209);
+    background-color: rgba(128, 128, 128, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#password-input input {
+    width: 100%;
+    height: 65px;
+    padding-left: 15px;
+    padding-top: 15px;
+    font-size: 15px;
+    color: rgb(209, 209, 209);
+    background-color: rgba(128, 128, 128, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#email-input, #password-input {
+    position: relative;
+    font-weight: lighter;
+}
+
+.placeholder, .placeholder2 {
+    position: absolute;
+    top: 21px;
+    left: 15px;
+    padding-left: 4px;
+    transition: 0.3s;
+    font-size: 18px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#email-input input:focus {
+    border: 1px solid rgb(221, 221, 221);
+    background-color: rgba(128, 128, 128, 0.2);
+    font-size: 14px;
+}
+
+#email-input input:focus + .placeholder {
+    font-size: 14px;
+    top: 4px;
+    left: 15px;
+    transition: 0.3s;
+}
+
+/* Focus Event */
+#email-input input:focus + .placeholder {
+    /* top: 5px;
+    left: 17px;
+    padding-top: 2px; */
+    transition: 0.3s;
+}
+
+#email-input input:focus {
+    padding-left: 17px;
+    font-size: 18px;
+}
+
+/* After Focus Event */
+/* #email-input input:not(:focus) + .placeholder {
+    top: 21px;
+    left: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+} */
+
+#email-input input:left {
+    padding-left: 17px;
+    font-size: 18px;
+}
+
+.sign-in-btn {
+    color: #FFFFFF;
+    background-color: rgb(231, 1, 1);
+    width: 100%;
+    height: 47px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#or {
+    font-size: 17px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightgrey;
+    text-align: center;
+}
+
+.sign-in-code {
+    width: 100%;
+    height: 47px; 
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+#forgot_passwd a {
+    color: #FFFFFF;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+#forgot_passwd {
+    text-align: center;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+#forgot_passwd a:hover {
+    color: lightgrey;
+}
+
+.check-box {
+    display: inline-flex;
+    margin-top: 5px;
+}
+
+.check-box span {
+    padding-left: 5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#check-box-icon {
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.sign-in-div span, #sign-in-link {
+    font-size: 16px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #dbdbdb;
+}
+
+#sign-in-link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+#sign-in-link:hover {
+    text-decoration: underline 2px solid #FFFFFF;
+}
+
+#info {
+    font-size: 14px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #bbbbbb;
+}
+
+.learn-more-a {
+    font-size: 14px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #448ef4;
+    text-decoration: underline;
+}

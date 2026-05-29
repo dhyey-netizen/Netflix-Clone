@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IMDB Genre Search</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    select, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+    }
+    #movie-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding-top: 20px;
+    }
+    .movie-card {
+      background: #2e2e2e;
+      border-radius: 10px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    .movie-card img {
+      width: 100%;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Movies by Genre</h1>
+  <div style="text-align: center;">
+    <select id="genre-select">
+      <option value="Comedy">Comedy</option>
+      <option value="Horror">Horror</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Action">Action</option>
+      <option value="Drama">Drama</option>
+      <option value="Romance">Romance</option>
+    </select>
+    <button onclick="fetchMovies()">Search</button>
+  </div>
+  <div id="movie-list"></div>
+
+  <script>
+    async function fetchMovies() {
+      const genre = document.getElementById("genre-select").value;
+      const url = `https://imdb8.p.rapidapi.com/title/v2/get-chart-genre-teaser-posters?titleType=ALL&first=20&genre1=${genre}&country=US&language=en-US`;
+
+      const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': '569ec41766msh8eb7b3ad0a35c71p1922c3jsne2ba62ff6646',
+          'x-rapidapi-host': 'imdb8.p.rapidapi.com'
+        }
+      };
+
+      const movieList = document.getElementById("movie-list");
+      movieList.innerHTML = "<p>Loading...</p>";
+
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log("Movies Response:", result);
+
+        movieList.innerHTML = "";
+
+        const genreData = result.data?.genre1;
+        if (genreData && Array.isArray(genreData.edges)) {
+          genreData.edges.forEach(edge => {
+            const title = edge.node?.titleText?.text;
+            const imageUrl = edge.node?.primaryImage?.url;
+
+            const card = document.createElement("div");
+            card.className = "movie-card";
+
+            if (imageUrl) {
+              const img = document.createElement("img");
+              img.src = imageUrl;
+              img.alt = title;
+              card.appendChild(img);
+            }
+
+            const titleEl = document.createElement("p");
+            titleEl.textContent = title;
+            titleEl.style.marginTop = "10px";
+            titleEl.style.fontWeight = "bold";
+            card.appendChild(titleEl);
+
+            movieList.appendChild(card);
+          });
+        } else {
+          movieList.innerHTML = `<p>No movies found for ${genre}</p>`;
+        }
+      } catch (error) {
+        console.error("Error fetching movies:", error);
+        movieList.innerHTML = `<p>Something went wrong. Please try again later.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

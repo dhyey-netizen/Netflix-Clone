@@ -1,0 +1,265 @@
+/* Global Reset & Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* General Styling */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Section */
+.header {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/header-image.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 10px 8%;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    width: 150px;
+}
+
+/* Nav Buttons */
+.language-btn,
+.signin-btn {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 7px 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Header Content */
+.header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.header-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Email Signup Form */
+.email-signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.email-signup input {
+    padding: 16px;
+    width: 350px;
+    max-width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.email-signup button {
+    background-color: red;
+    color: white;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 12%;
+    background-color: black;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.text-col {
+    flex: 1;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.img-col {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.img-col img {
+    width: 90%;
+    max-width: 500px;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 50px 12%;
+    text-align: center;
+    background-color: black;
+}
+
+.accordion {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.accordion li {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.accordion input {
+    display: none;
+}
+
+.accordion label {
+    display: block;
+    padding: 20px;
+    background: #333;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 4px;
+}
+
+.accordion .content {
+    max-height: 0;
+    overflow: hidden;
+    background: #444;
+    padding: 0 20px;
+    transition: max-height 0.5s ease;
+    border-radius: 4px;
+}
+
+.accordion input:checked + label + .content {
+    max-height: 200px;
+    padding: 20px;
+}
+
+/* Footer Section */
+.footer {
+    padding: 50px 15%;
+    background-color: #222;
+    text-align: center;
+}
+
+.footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer .col {
+    flex: 1;
+    margin: 10px;
+    min-width: 150px;
+}
+
+.footer a {
+    display: block;
+    color: #bbb;
+    text-decoration: none;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.footer .language-btn {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid #bbb;
+    color: #bbb;
+}
+
+.copyright-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .header-content h3,
+    .header-content p {
+        font-size: 1rem;
+    }
+
+    .email-signup {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .email-signup input,
+    .email-signup button {
+        width: 100%;
+    }
+
+    .footer .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer .col {
+        width: 100%;
+        text-align: center;
+    }
+}
